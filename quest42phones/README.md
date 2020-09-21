@@ -8,6 +8,6 @@ The advantage will be given to a team of two players who will scan each other's 
 
 A good starting point might be a QR code pointing to a page with an answer equal to zero.
 
-![initial answer equal to zero](https://aragont.github.io//quest42phones/answer_eq_0.png)
+![initial answer equal to zero](https://aragont.github.io/quest42phones/answer_eq_0.png)
 
 This project use [qrcode.js](https://davidshimjs.github.io/qrcodejs/) library.
