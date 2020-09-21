@@ -1,3 +1,5 @@
+## Quest for two phones
+
 This is a quest assignment.
 
 The initial QR code is printed on paper. The player reads it to his smartphone and goes to the page with the new QR code. The page address looks like http://example.com?answer=12  and the goal is to find the correct answer.
