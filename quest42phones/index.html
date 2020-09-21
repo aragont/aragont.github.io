@@ -7,8 +7,8 @@
     <script type="text/javascript" src="https://davidshimjs.github.io/qrcodejs/qrcode.js"></script>
   </head>
   <body>
-  <div id="qrtext"></div>
-  <div id="qrcode"></div>
+  <div id="qrtext" width="100%" align="center"></div>
+  <div id="qrcode" width="100%" align="center"></div>
   <script type="text/javascript">
     const target = 42;
     const currentUrl = new URL(window.location.href);
@@ -27,7 +27,7 @@
       else if ( answer >= 50 ) { newAnswer += 25; phrase = 'The end is near';}
       else { newAnswer = 42;  phrase = 'Just one more step';}
 
-      document.getElementById("qrtext").innerHTML = '<span style="color:red;font-size:medium;">'+answer+' is not the right answer!<br>'+ phrase+'.</span>';
+      document.getElementById("qrtext").innerHTML = '<span style="color:red;font-size:large;">'+answer+' is not the right answer!<br>'+ phrase+'.</span>';
       
       const nextURL = new URL('?answer='+newAnswer, currentUrl);               
       var qrcode = new QRCode(document.getElementById("qrcode"), {
