@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="QRCode quest for two phones" />
+    <script type="text/javascript" src="https://davidshimjs.github.io/qrcodejs/jquery.min.js"></script>
+    <script type="text/javascript" src="https://davidshimjs.github.io/qrcodejs/qrcode.js"></script>
+  </head>
+  <body>
+  <div id="qrtext"></div>
+  <div id="qrcode"></div>
+  <script type="text/javascript">
+    const target = 42;
+    const currentUrl = new URL(window.location.href);
+    var answer = parseInt(currentUrl.searchParams.get("answer"), 10);
+    answer=isNaN(answer) ? 0 : answer;
+    
+    if( answer == target ){
+      document.getElementById("qrtext").innerHTML = '<span style="color:green;font-size:medium;">Congratulations! 42 is the right answer!</span>';
+    } else {
+      document.getElementById("qrtext").innerHTML = '<span style="color:red;font-size:medium;">'+answer+' is not the right answer!</span>';
+      
+      var newAnswer = Math.floor(Math.random() * Math.floor(24));
+      // The path thru random answers is [0-24]->[75-99]->[50-74]->[25-49]->42
+      // we can reach the goal after 3-5 steps
+      if ( answer < 25) { newAnswer += 75; }
+      else if ( answer >= 75 ) { newAnswer += 50; }
+      else if ( answer >= 50 ) { newAnswer += 25; }
+      else { newAnswer = 42; }
+      
+      const nextURL = new URL('?answer='+newAnswer, currentUrl);               
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+	      text: nextURL.href,
+	      width: 128,
+	      height: 128,
+	      colorDark : "#000000",
+	      colorLight : "#ffffff",
+	      correctLevel : QRCode.CorrectLevel.H
+      });
+    }
+  </script>
+  </body>
+</html>
