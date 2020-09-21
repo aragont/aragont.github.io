@@ -21,9 +21,10 @@
       document.getElementById("qrtext").innerHTML = '<span style="color:red;font-size:medium;">'+answer+' is not the right answer!</span>';
       
       var newAnswer = Math.floor(Math.random() * Math.floor(24));
-      // The path thru random answers is [0-24]->[75-99]->[50-74]->[25-49]->42
+      // The path thru random answers is 0->[0-24]->[75-99]->[50-74]->[25-49]->42
       // we can reach the goal after 3-5 steps
-      if ( answer < 25) { newAnswer += 75; }
+      if ( answer == 0 ) { newAnswer += 0; }
+      else if ( answer < 25) { newAnswer += 75; }
       else if ( answer >= 75 ) { newAnswer += 50; }
       else if ( answer >= 50 ) { newAnswer += 25; }
       else { newAnswer = 42; }
